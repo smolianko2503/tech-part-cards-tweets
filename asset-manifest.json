@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/tech-part-cards-tweets/static/css/main.0d5b2924.css",
-    "main.js": "/tech-part-cards-tweets/static/js/main.cfb2ace2.js",
+    "main.js": "/tech-part-cards-tweets/static/js/main.27d513d1.js",
     "static/media/picture2 1.png": "/tech-part-cards-tweets/static/media/picture2 1.86562350dcaa714a1442.png",
     "index.html": "/tech-part-cards-tweets/index.html",
     "main.0d5b2924.css.map": "/tech-part-cards-tweets/static/css/main.0d5b2924.css.map",
-    "main.cfb2ace2.js.map": "/tech-part-cards-tweets/static/js/main.cfb2ace2.js.map"
+    "main.27d513d1.js.map": "/tech-part-cards-tweets/static/js/main.27d513d1.js.map"
   },
   "entrypoints": [
     "static/css/main.0d5b2924.css",
-    "static/js/main.cfb2ace2.js"
+    "static/js/main.27d513d1.js"
   ]
 }
