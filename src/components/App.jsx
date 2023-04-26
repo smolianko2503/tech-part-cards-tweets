@@ -10,7 +10,8 @@ export const App = () => {
      <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="tweets" element={<Tweets />} />
+          <Route path="tweets" element={<Tweets />} />
+          <Route path="*" element={<Home />} />
       </Route>
     </Routes>
     </div>
@@ -18,6 +19,3 @@ export const App = () => {
 };
 
 
-//  {/* <Route path="movies/:movieId" element={<MovieDetails />}>
-//           <Route path="cast" element={<Cast />} />
-//           <Route path="reviews" element={<Reviews />} /> */}

@@ -1,7 +1,11 @@
+import { Title } from './Home.styled';
 
 const Home = () => {
-    return <div>This is home</div>
-}
+  return (
+    <div>
+      <Title>This is home page</Title>
+    </div>
+  );
+};
 
-
-export default Home
+export default Home;

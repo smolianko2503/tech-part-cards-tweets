@@ -4,20 +4,27 @@ import {
   updateFollowers,
 } from 'components/Services/Api';
 import { useEffect, useState } from 'react';
-import { TweetsList, TweetsCards, ButtonOnLoadMore } from './Tweets.styled';
+import {
+  TweetsList,
+  TweetsCards,
+  ButtonOnLoadMore,
+  LiknGoBack,
+} from './Tweets.styled';
 import TweetsItem from 'components/TweetsItem/TweetsItem';
+import Loader from 'components/Loader/Loader';
 
 const Tweets = () => {
   const [dataCards, setDataCards] = useState([]);
   const [page, setPage] = useState(1);
-  // const [countTweetsCards, setCountTweetsCards] = useState([]);
   const [toHideButton, setToHideButton] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getTweetsCards(page)
       .then(response => {
         setDataCards(prevState => [...prevState, ...response]);
-        console.log(response);
+        setIsLoading(false);
       })
       .catch(error => console.log(error));
   }, [page]);
@@ -28,7 +35,7 @@ const Tweets = () => {
         if (Math.ceil(response.length / 3) === page) {
           setToHideButton(true);
         }
-       })
+      })
       .catch(error => console.log(error));
   }, [page]);
 
@@ -57,16 +64,19 @@ const Tweets = () => {
 
   return (
     <TweetsCards>
+      <LiknGoBack to={'/'}>Go back</LiknGoBack>
       <TweetsList>
-        {dataCards.map(card => (
-          <TweetsItem
-            key={card.id}
-            data={card}
-            updateValueFollowers={updateValueFollowers}
-          />
-        ))}
+        {dataCards.length > 0 &&
+          dataCards.map(card => (
+            <TweetsItem
+              key={card.id}
+              data={card}
+              updateValueFollowers={updateValueFollowers}
+            />
+          ))}
       </TweetsList>
-      {toHideButton === false && (
+      {isLoading && <Loader></Loader>}
+      {toHideButton === false && dataCards.length > 0 && (
         <ButtonOnLoadMore type="button" onClick={onLoadMore}>
           Load more
         </ButtonOnLoadMore>
