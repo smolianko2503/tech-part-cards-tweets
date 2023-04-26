@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+
 import { GlobalStyle } from 'components/GlobalStyled';
 
 import { StyledLink, StyledLinkContainer, Header } from './Layout.styled';
